@@ -23,8 +23,13 @@ const items = [
   { icon: <Insights />, label: 'Insights' }
 ];
 
-const SecondarySidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+interface SecondarySidebarProps {
+  collapsed: boolean;
+  onToggleCollapse: () => void;
+}
+
+const SecondarySidebar = ({ collapsed, onToggleCollapse }: SecondarySidebarProps) => {
+//   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <Box
@@ -33,13 +38,13 @@ const SecondarySidebar = () => {
         transition: 'width 0.3s',
         bgcolor: '#f5f5f5',
         borderRight: '1px solid #ddd',
-        height: '100vh',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column'
       }}
     >
       <Box sx={{ textAlign: 'right', p: 1 }}>
-        <IconButton onClick={() => setCollapsed(!collapsed)}>
+        <IconButton onClick={onToggleCollapse}>
           {collapsed ? <ChevronRight /> : <ChevronLeft />}
         </IconButton>
       </Box>

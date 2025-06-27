@@ -21,7 +21,7 @@ const PrimarySidebar = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        py: 2
+        height: '100%',
       }}
     >
       {/* Logo */}
