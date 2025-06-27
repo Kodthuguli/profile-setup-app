@@ -9,6 +9,8 @@ interface CustomInputProps {
   type?: string;
   rules?: any;
   disabled?: boolean;
+   multiline?: boolean;
+  minRows?: number;
 }
 
 const CustomInput = ({
@@ -19,6 +21,8 @@ const CustomInput = ({
   type = 'text',
   rules,
   disabled = false,
+  multiline = false,
+  minRows = 1,
 }: CustomInputProps) => {
   const isRequired = rules?.required !== undefined;
 
@@ -77,6 +81,8 @@ const CustomInput = ({
                 type={type}
                 placeholder={placeholder}
                 variant="standard"
+                multiline={multiline}
+  minRows={minRows}
                 disabled={disabled}
                 InputProps={{
                   disableUnderline: true,
