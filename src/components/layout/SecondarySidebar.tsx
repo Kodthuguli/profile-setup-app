@@ -36,7 +36,7 @@ const SecondarySidebar = ({ collapsed, onToggleCollapse }: SecondarySidebarProps
       sx={{
         width: collapsed ? 72 : 220,
         transition: 'width 0.3s',
-        bgcolor: '#f5f5f5',
+        bgcolor: 'white',
         borderRight: '1px solid #ddd',
         height: '100%',
         display: 'flex',
