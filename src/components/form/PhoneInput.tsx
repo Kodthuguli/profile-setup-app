@@ -17,37 +17,13 @@ const StyledPhoneWrapper = styled(Box)(() => ({
   '& .selected-flag': {
     width: '38px',
     height: '120%',
+    padding: '0 0 0 24px',
     '& .flag': {
-      backgroundImage: 'none !important',
-      width: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'flex-end',
-      paddingRight: '8px',
-      pointerEvents: 'none',
-    },
-    '& .flag::after': {
-      content: '"˅"',
-      fontSize: '12px',
-      color: '#222',
-      marginLeft: '8px',
-    },
-  },
-  '& .open': {
-    '& .flag::after': {
-      content: '"˄"',
-      fontSize: '12px',
-      color: '#222',
-      marginLeft: '8px',
-    },
-  },
-  '& .country-list': {
-    '& .search': {
       display: 'none',
     },
   },
-  '& .selected-flag .arrow': {
-    display: 'none !important',
+  '& .country-list .search': {
+    display: 'none',
   },
 }));
 
@@ -59,7 +35,7 @@ const PhoneInput = ({
   placeholder = '',
   disabled = false,
 }: PhoneInputProps) => {
-  const isRequired = rules?.required !== undefined;
+  const isRequired = !!rules?.required;
 
   return (
     <Controller
@@ -71,14 +47,14 @@ const PhoneInput = ({
         const hasError = Boolean(error);
 
         return (
-          <StyledPhoneWrapper className="phone-input-container">
-            {/* Label with optional red star */}
+          <StyledPhoneWrapper>
+            {/* Label */}
             <Typography
               variant="subtitle2"
               fontWeight={500}
               sx={{
                 mb: 0.5,
-                color: hasError ? 'error.main' : '#000000',
+                color: hasError ? 'error.main' : '#000',
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -96,13 +72,13 @@ const PhoneInput = ({
               )}
             </Typography>
 
-            {/* Input Box */}
+            {/* Input */}
             <Box
               sx={{
-                bgcolor: disabled ? '#f4f4f4' : 'white',
+                bgcolor: disabled ? '#f4f4f4' : '#fff',
                 border: `1px solid ${hasError ? 'red' : '#F4F4F4'}`,
-                borderTopLeftRadius: '8px',
-                borderTopRightRadius: '8px',
+                borderTopLeftRadius: 8,
+                borderTopRightRadius: 8,
                 borderBottomLeftRadius: 0,
                 borderBottomRightRadius: 0,
                 px: 1.5,
@@ -112,7 +88,6 @@ const PhoneInput = ({
               }}
             >
               <MuiPhoneInput
-                country={'in'}
                 value={value}
                 onChange={onChange}
                 disabled={disabled}
@@ -121,7 +96,7 @@ const PhoneInput = ({
                   boxShadow: 'none',
                   width: '100%',
                   background: 'transparent',
-                  fontSize: '14px',
+                  fontSize: 14,
                   height: '100%',
                   padding: 0,
                   fontFamily: 'Mulish, sans-serif',
@@ -147,10 +122,10 @@ const PhoneInput = ({
               />
             </Box>
 
-            {/* Bottom Line */}
+            {/* Bottom Border */}
             <Box
               sx={{
-                height: '2px',
+                height: 2,
                 bgcolor: hasError
                   ? 'red'
                   : hasValue
@@ -159,7 +134,7 @@ const PhoneInput = ({
               }}
             />
 
-            {/* Error Text */}
+            {/* Error Message */}
             {hasError && (
               <Typography variant="caption" color="error" mt={0.5}>
                 {error && error.message}

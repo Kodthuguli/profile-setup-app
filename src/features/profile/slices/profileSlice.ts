@@ -1,14 +1,20 @@
+// src/features/profile/slices/profileSlice.ts
+
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { BasicInfo, EducationEntry, WorkExperience } from '../types';
 
-// ✅ Extend Resume type
+/**
+ * Represents uploaded resume file metadata.
+ */
 interface ResumeData {
   fileName: string;
   file: File | null;
 }
 
-// ✅ State structure
+/**
+ * Root profile state structure maintained in Redux.
+ */
 interface ProfileState {
   basicInfo: BasicInfo;
   workExperience: WorkExperience;
@@ -16,7 +22,9 @@ interface ProfileState {
   resume: ResumeData;
 }
 
-// ✅ Initial state
+/**
+ * Initial default state for profile.
+ */
 const initialState: ProfileState = {
   basicInfo: {
     fullName: '',
@@ -46,11 +54,16 @@ const initialState: ProfileState = {
   },
 };
 
-// ✅ Slice definition
+/**
+ * Profile slice definition using Redux Toolkit.
+ */
 const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
+    /**
+     * Generic update handler for profile sections (e.g., basicInfo, workExperience).
+     */
     updateProfile: (
       state,
       action: PayloadAction<{ section: keyof ProfileState; data: any }>
@@ -61,6 +74,6 @@ const profileSlice = createSlice({
   },
 });
 
-// ✅ Exports
+// Export actions and reducer
 export const { updateProfile } = profileSlice.actions;
 export default profileSlice.reducer;

@@ -1,5 +1,5 @@
 import { Controller } from 'react-hook-form';
-import { Box, Typography, TextField } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Dayjs } from 'dayjs';
 
@@ -20,7 +20,7 @@ const DatePickerField = ({
   placeholder = '',
   disabled = false,
 }: DatePickerFieldProps) => {
-  const isRequired = rules?.required !== undefined;
+  const isRequired = !!rules?.required;
 
   return (
     <Controller
@@ -33,13 +33,13 @@ const DatePickerField = ({
 
         return (
           <Box>
-            {/* Label with optional red star */}
+            {/* Label */}
             <Typography
               variant="subtitle2"
               fontWeight={500}
               sx={{
                 mb: 0.5,
-                color: hasError ? 'error.main' : '#000000',
+                color: hasError ? 'error.main' : '#000',
                 display: 'flex',
                 alignItems: 'center',
               }}
@@ -50,7 +50,7 @@ const DatePickerField = ({
                   component="span"
                   color="error.main"
                   ml={0.5}
-                  fontSize="16px"
+                  fontSize={16}
                 >
                   *
                 </Typography>
@@ -60,10 +60,10 @@ const DatePickerField = ({
             {/* Input Wrapper */}
             <Box
               sx={{
-                bgcolor: disabled ? '#f4f4f4' : 'white',
+                bgcolor: disabled ? '#f4f4f4' : '#fff',
                 border: `1px solid ${hasError ? 'red' : '#F4F4F4'}`,
-                borderTopLeftRadius: '8px',
-                borderTopRightRadius: '8px',
+                borderTopLeftRadius: 8,
+                borderTopRightRadius: 8,
                 borderBottomLeftRadius: 0,
                 borderBottomRightRadius: 0,
                 px: 1.5,
@@ -72,9 +72,7 @@ const DatePickerField = ({
             >
               <DatePicker
                 value={value || null}
-                onChange={(newValue: Dayjs | null) => {
-                  onChange(newValue);
-                }}
+                onChange={(newValue: Dayjs | null) => onChange(newValue)}
                 disabled={disabled}
                 slotProps={{
                   textField: {
@@ -93,10 +91,10 @@ const DatePickerField = ({
               />
             </Box>
 
-            {/* Bottom Line */}
+            {/* Bottom Border */}
             <Box
               sx={{
-                height: '2px',
+                height: 2,
                 bgcolor: hasError
                   ? 'red'
                   : hasValue
@@ -105,7 +103,7 @@ const DatePickerField = ({
               }}
             />
 
-            {/* Error Message */}
+            {/* Error Text */}
             {hasError && (
               <Typography variant="caption" color="error" mt={0.5}>
                 {error && error.message}

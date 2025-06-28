@@ -44,7 +44,6 @@ const CustomSelect = ({
 
         return (
           <Box>
-            {/* Label with optional red star */}
             <Typography
               variant="subtitle2"
               fontWeight={500}
@@ -68,13 +67,10 @@ const CustomSelect = ({
               )}
             </Typography>
 
-            {/* Input Wrapper */}
             <Box
               sx={{
                 bgcolor: disabled ? '#f4f4f4' : 'white',
-                border: `1px solid ${
-                  hasError ? 'red' : '#F4F4F4'
-                }`,
+                border: `1px solid ${hasError ? 'red' : '#F4F4F4'}`,
                 borderTopLeftRadius: '8px',
                 borderTopRightRadius: '8px',
                 borderBottomLeftRadius: 0,
@@ -119,7 +115,6 @@ const CustomSelect = ({
               </FormControl>
             </Box>
 
-            {/* Bottom Line */}
             <Box
               sx={{
                 height: '2px',
@@ -131,7 +126,6 @@ const CustomSelect = ({
               }}
             />
 
-            {/* Error message */}
             {hasError && (
               <Typography variant="caption" color="error" mt={0.5}>
                 {error && error.message}

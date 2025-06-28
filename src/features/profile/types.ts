@@ -1,5 +1,8 @@
 // src/features/profile/types.ts
 
+/**
+ * Represents a single education record in the profile.
+ */
 export interface EducationEntry {
   degree: string;
   institute: string;
@@ -8,19 +11,24 @@ export interface EducationEntry {
   endYear: string;
 }
 
-// You can also add this if needed
+/**
+ * Represents work experience details.
+ */
 export interface WorkExperience {
   isFresher: boolean;
   totalExpYear: string;
   totalExpMonth: string;
   company: string;
   title: string;
-  joiningYear: Number;
+  joiningYear: Number; 
   joiningMonth: string;
   notice: string;
   profile: string;
 }
 
+/**
+ * Represents basic personal and contact information.
+ */
 export interface BasicInfo {
   fullName: string;
   email: string;
@@ -32,11 +40,17 @@ export interface BasicInfo {
   linkedIn?: string;
 }
 
+/**
+ * Represents uploaded resume file metadata.
+ */
 export interface ResumeData {
   fileName: string;
   file: File | null;
 }
 
+/**
+ * Reference object used to trigger form submission from parent.
+ */
 export interface StepFormRef {
   submit: () => void;
 }

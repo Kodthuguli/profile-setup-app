@@ -9,7 +9,7 @@ interface CustomInputProps {
   type?: string;
   rules?: any;
   disabled?: boolean;
-   multiline?: boolean;
+  multiline?: boolean;
   minRows?: number;
 }
 
@@ -37,7 +37,6 @@ const CustomInput = ({
 
         return (
           <Box>
-            {/* Label with red star if required */}
             <Typography
               variant="subtitle2"
               fontWeight={500}
@@ -61,7 +60,6 @@ const CustomInput = ({
               )}
             </Typography>
 
-            {/* Input container */}
             <Box
               sx={{
                 bgcolor: disabled ? '#f4f4f4' : 'white',
@@ -82,7 +80,7 @@ const CustomInput = ({
                 placeholder={placeholder}
                 variant="standard"
                 multiline={multiline}
-  minRows={minRows}
+                minRows={minRows}
                 disabled={disabled}
                 InputProps={{
                   disableUnderline: true,
@@ -97,7 +95,6 @@ const CustomInput = ({
               />
             </Box>
 
-            {/* Bottom Line */}
             <Box
               sx={{
                 height: '2px',
@@ -109,7 +106,6 @@ const CustomInput = ({
               }}
             />
 
-            {/* Error Message */}
             {hasError && (
               <Typography variant="caption" color="error" mt={0.5}>
                 {error && error.message}

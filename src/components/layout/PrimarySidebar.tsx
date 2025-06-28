@@ -1,13 +1,33 @@
 import { Box, IconButton, Tooltip } from '@mui/material';
-import { Home, Person, BarChart, Settings } from '@mui/icons-material';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Logo from '../../assets/images/Icon.svg'
+
+import Logo from '../../assets/images/Icon.svg';
+import Home from '../../assets/images/home.svg';
+import Supervisor from '../../assets/images/supervisor_account.svg';
+import Contact from '../../assets/images/white_contract.svg';
+import Setting from '../../assets/images/Setting.svg';
 
 const navItems = [
-  { icon: <Home />, label: 'Dashboard', path: '/' },
-  { icon: <Person />, label: 'Profile', path: '/profile' },
-  { icon: <BarChart />, label: 'Insights', path: '/insights' },
-  { icon: <Settings />, label: 'Settings', path: '/settings' }
+  {
+    icon: <img src={Home} alt="Dashboard" width={14} height={14} style={{ cursor: 'pointer' }} />,
+    label: 'Dashboard',
+    path: '/'
+  },
+  {
+    icon: <img src={Supervisor} alt="Profile" width={14} height={14} style={{ cursor: 'pointer' }} />,
+    label: 'Profile',
+    path: '/profile'
+  },
+  {
+    icon: <img src={Contact} alt="Documents" width={14} height={14} style={{ cursor: 'pointer' }} />,
+    label: 'Documents',
+    path: '/documents'
+  },
+  {
+    icon: <img src={Setting} alt="Settings" width={14} height={14} style={{ cursor: 'pointer' }} />,
+    label: 'Settings',
+    path: '/settings'
+  }
 ];
 
 const PrimarySidebar = () => {
@@ -18,37 +38,35 @@ const PrimarySidebar = () => {
     <Box
       sx={{
         width: 72,
-        bgcolor: '#1A237E',
+        bgcolor: '#272C6A',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        height: '100%',
+        height: '100%'
       }}
     >
-      {/* Logo */}
-      <Box sx={{ mb: 4,pt: 2, }}>
+      {/* App Logo */}
+      <Box sx={{ pt: 2, mb: 4 }}>
         <img src={Logo} alt="App Logo" width={32} height={32} />
       </Box>
 
-      {/* Icons */}
-      {navItems.map((item) => {
+      {/* Sidebar Navigation Icons */}
+      {navItems.map(({ icon, label, path }) => {
         const isActive =
-  item.path === '/'
-    ? location.pathname === '/'
-    : location.pathname.startsWith(item.path);
+          path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
         return (
-          <Tooltip key={item.label} title={item.label} placement="right">
+          <Tooltip key={label} title={label} placement="right">
             <IconButton
-              onClick={() => navigate(item.path)}
+              onClick={() => navigate(path)}
               sx={{
-                color: isActive ? '#FFD700' : 'white',
                 mb: 2,
-                bgcolor: isActive ? '#3949AB' : 'transparent',
+                color: isActive ? '#FFD700' : 'white',
+                bgcolor: isActive ? '#555D9D' : 'transparent',
                 '&:hover': { bgcolor: '#3949AB' }
               }}
             >
-              {item.icon}
+              {icon}
             </IconButton>
           </Tooltip>
         );
