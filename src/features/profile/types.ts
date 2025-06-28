@@ -31,3 +31,12 @@ export interface BasicInfo {
   city?: string;
   linkedIn?: string;
 }
+
+export interface ResumeData {
+  fileName: string;
+  file: File | null;
+}
+
+export interface StepFormRef {
+  submit: () => void;
+}

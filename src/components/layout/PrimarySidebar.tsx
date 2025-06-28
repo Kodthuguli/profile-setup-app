@@ -1,6 +1,7 @@
 import { Box, IconButton, Tooltip } from '@mui/material';
 import { Home, Person, BarChart, Settings } from '@mui/icons-material';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Logo from '../../assets/images/Icon.svg'
 
 const navItems = [
   { icon: <Home />, label: 'Dashboard', path: '/' },
@@ -25,8 +26,8 @@ const PrimarySidebar = () => {
       }}
     >
       {/* Logo */}
-      <Box sx={{ mb: 4 }}>
-        <img src="/logo.svg" alt="App Logo" width={32} height={32} />
+      <Box sx={{ mb: 4,pt: 2, }}>
+        <img src={Logo} alt="App Logo" width={32} height={32} />
       </Box>
 
       {/* Icons */}

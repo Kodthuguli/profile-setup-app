@@ -236,6 +236,7 @@ import CustomSelect from '../../../components/form/CustomSelect';
 import CustomInput from '../../../components/form/CustomInput';
 import { updateProfile } from '../slices/profileSlice';
 import type { RootState } from '../../../app/store';
+import type { StepFormRef } from '../types';
 
 interface Props {
   onValidated: () => void;
@@ -254,7 +255,7 @@ const years = Array.from({ length: 40 }, (_, i) => {
   return { label: `${year}`, value: `${year}` };
 });
 
-const Education = forwardRef(({ onValidated }: Props, ref) => {
+const Education = forwardRef<StepFormRef, Props>(({ onValidated }: Props, ref) => {
   const dispatch = useDispatch();
   const educationState = useSelector((state: RootState) => state.profile.education || []);
 

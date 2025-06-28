@@ -171,6 +171,7 @@ import CustomInput from '../../../components/form/CustomInput';
 import PhoneInput from '../../../components/form/PhoneInput';
 import CustomSelect from '../../../components/form/CustomSelect';
 import DatePickerField from '../../../components/form/DatePicker';
+import type { StepFormRef } from '../types';
 
 const states = [
   { label: 'Karnataka', value: 'KA' },
@@ -188,7 +189,7 @@ interface Props {
   onValidated: () => void;
 }
 
-const BasicInfo = forwardRef(({ onValidated }: Props, ref) => {
+const BasicInfo = forwardRef<StepFormRef, Props>(({ onValidated }: Props, ref) => {
   const dispatch = useDispatch();
   const profile = useSelector((state: RootState) => state.profile.basicInfo);
 

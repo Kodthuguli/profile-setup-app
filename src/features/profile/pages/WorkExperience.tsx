@@ -7,6 +7,7 @@ import CustomSelect from '../../../components/form/CustomSelect';
 import CustomInput from '../../../components/form/CustomInput';
 import { updateProfile } from '../slices/profileSlice';
 import type { RootState } from '../../../app/store';
+import type { StepFormRef } from '../types';
 
 interface Props {
   onValidated: () => void;
@@ -51,7 +52,7 @@ const noticePeriods = [
   { label: 'More than 90 days', value: '120' }
 ];
 
-const WorkExperience = forwardRef(({ onValidated }: Props, ref) => {
+const WorkExperience = forwardRef<StepFormRef, Props>(({ onValidated }: Props, ref) => {
   const dispatch = useDispatch();
   const work = useSelector((state: RootState) => state.profile.workExperience);
 

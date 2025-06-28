@@ -2,14 +2,21 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { BasicInfo, EducationEntry, WorkExperience } from '../types';
 
+// ✅ Extend Resume type
+interface ResumeData {
+  fileName: string;
+  file: File | null;
+}
 
+// ✅ State structure
 interface ProfileState {
   basicInfo: BasicInfo;
   workExperience: WorkExperience;
-  education: EducationEntry[];        // ✅ NEW
+  education: EducationEntry[];
+  resume: ResumeData;
 }
 
-// ✅ Step 4: Add default state
+// ✅ Initial state
 const initialState: ProfileState = {
   basicInfo: {
     fullName: '',
@@ -33,9 +40,13 @@ const initialState: ProfileState = {
     profile: '',
   },
   education: [],
+  resume: {
+    fileName: '',
+    file: null,
+  },
 };
 
-// ✅ Step 5: Slice with dynamic update
+// ✅ Slice definition
 const profileSlice = createSlice({
   name: 'profile',
   initialState,
@@ -50,5 +61,6 @@ const profileSlice = createSlice({
   },
 });
 
+// ✅ Exports
 export const { updateProfile } = profileSlice.actions;
 export default profileSlice.reducer;
