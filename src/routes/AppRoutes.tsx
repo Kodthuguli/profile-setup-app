@@ -3,6 +3,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import ProfileSetup from '../features/profile/pages/ProfileSetup';
+import ViewProfile from '../features/profile/pages/ViewProfile';
 
 /**
  * Defines all application routes wrapped by the main Layout.
@@ -36,7 +37,7 @@ const AppRoutes = () => {
           {/* View Profile placeholder */}
           <Route
             path="view"
-            element={<h1>View Profile</h1>}
+            element={<ViewProfile />}
           />
 
           {/* Profile Insights placeholder */}

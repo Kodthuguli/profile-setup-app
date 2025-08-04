@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import Grid from '@mui/material/Grid'; // ⚠️ use Unstable_Grid2 to support `size` prop
+import Grid from '@mui/material/Grid'; // 
 import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { forwardRef, useImperativeHandle } from 'react';
